@@ -7,9 +7,11 @@ import purpleHeartIcon from '../../assets/images/icons/purple-heart.svg';
 import { Link } from 'react-router-dom';
 import './styles.css';
 import api from '../../services/api';
+import { useAuth } from '../../context/AuthContext';
 
 const Landing: React.FC = () => {
 	const [totalConnections, setTotalConnections] = useState(0);
+	const { signOut } = useAuth();
 
 	useEffect(() => {
 		api.get('/connections').then((response) => {
@@ -21,6 +23,9 @@ const Landing: React.FC = () => {
 
 	return (
 		<div id='page-landing'>
+			<button type='button' onClick={signOut}>
+				LogOut
+			</button>
 			<div id='page-landing-content' className='container'>
 				<div className='logo-container'>
 					<img src={logoImg} alt='Proffy' />

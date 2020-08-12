@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Landing from './Landing';
-import TeacherList from './TeacherList';
-import TeacherForm from './TeacherForm';
+import Landing from '../Landing';
+import TeacherList from '../TeacherList';
+import TeacherForm from '../TeacherForm';
 
-const Routes: React.FC = () => {
+const LoggedOnRoutes: React.FC = () => {
 	return (
 		<BrowserRouter>
 			<Switch>
@@ -16,4 +16,4 @@ const Routes: React.FC = () => {
 	);
 };
 
-export default Routes;
+export default LoggedOnRoutes;
