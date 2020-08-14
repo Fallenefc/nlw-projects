@@ -2,11 +2,12 @@ import React, { useState, FormEvent } from 'react';
 import PageWithBackgroundImg from '../../components/PageWithBackgroundImg';
 import Input from '../../components/Input';
 import api from '../../services/api';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 // import { Container } from './styles';
 
 const ResetPasswordPage: React.FC = () => {
+	const history = useHistory();
 	const { resetToken } = useParams();
 	console.log(resetToken);
 	const [email, setEmail] = useState('');
@@ -19,6 +20,8 @@ const ResetPasswordPage: React.FC = () => {
 			password: newPassword,
 			token: resetToken,
 		});
+
+		history?.push('/resetpasswordcompleted');
 	};
 
 	return (

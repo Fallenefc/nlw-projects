@@ -1,0 +1,47 @@
+.finish-container {
+	background-image: url('../../assets/images/success-background.svg');
+	background-color: var(--color-primary);
+	width: 100%;
+	height: 100%;
+}
+
+.text-and-logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font: 700 2rem Archivo;
+	flex: 1;
+	margin: 25rem;
+}
+
+.text-and-logo h1 {
+	color: var(--color-title-in-primary);
+	font-weight: bold;
+	padding-top: 3rem;
+}
+
+.text-and-logo h4 {
+	color: var(--color-text-complement);
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	font-weight: 500;
+}
+
+.text-and-logo a {
+	background: var(--color-secundary);
+	color: var(--color-title-in-primary);
+	width: 13rem;
+	height: 6rem;
+	cursor: pointer;
+	text-decoration: none;
+	border-radius: 0.5rem;
+	font-size: 1.6rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.text-and-logo a:hover {
+	background: var(--color-secundary-dark);
+}
