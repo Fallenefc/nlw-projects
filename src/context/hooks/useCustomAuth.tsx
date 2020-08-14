@@ -43,7 +43,8 @@ const useCustomAuth = () => {
 		localStorage.setItem('token', response.data.token);
 	};
 	const signOut = () => {
-		localStorage.clear();
+		localStorage.removeItem('user');
+		localStorage.removeItem('token');
 		setUser(null);
 		history?.push('/');
 	};

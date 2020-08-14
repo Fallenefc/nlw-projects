@@ -1,8 +1,8 @@
 import React, { useState, FormEvent } from 'react';
 import './styles.css';
-import logoImg from '../../assets/images/logo.svg';
 import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
+import PageWithBackgroundImg from '../../components/PageWithBackgroundImg';
 
 const Register: React.FC = () => {
 	const [name, setName] = useState('');
@@ -20,13 +20,7 @@ const Register: React.FC = () => {
 	};
 
 	return (
-		<div className='login-container'>
-			<div className='background-page'>
-				<img src={logoImg} alt='logo' className='logo-img' />
-				<h2>
-					Sua plataforma de <br /> estudos online.
-				</h2>
-			</div>
+		<PageWithBackgroundImg button>
 			<div className='login-form'>
 				<form onSubmit={handleSubmit}>
 					<div className='labels'>
@@ -66,7 +60,7 @@ const Register: React.FC = () => {
 					<button type='submit'>Concluir cadastro</button>
 				</form>
 			</div>
-		</div>
+		</PageWithBackgroundImg>
 	);
 };
 

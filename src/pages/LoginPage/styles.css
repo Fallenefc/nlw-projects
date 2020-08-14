@@ -53,22 +53,47 @@
 	margin-top: 0;
 }
 
+.input-checkbox {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 1rem;
+	padding-right: 30rem;
+}
+.input-checkbox label {
+	padding-left: 28rem;
+}
+
+.input-checkbox input {
+	width: 2rem;
+	height: 2rem;
+	margin-left: 2rem;
+}
+.input-checkbox a {
+	text-decoration: none;
+	padding-left: 22rem;
+}
+
 .login-form form button {
+	color: var(--color-background);
 	width: 30rem;
 	height: 5rem;
 	border-radius: 0.8rem;
 	margin-top: 1.6rem;
 	margin-right: 1.6rem;
 	font: 700 2rem Archivo;
-
 	display: flex;
-
 	align-items: center;
 	justify-content: center;
-
-	color: var(--color-text-complement);
+	background: var(--color-secundary);
 
 	transition: background-color 0.2s;
+}
+
+.login-form form button:hover {
+	background: var(--color-secundary-light);
+	color: var(--color-text-complement);
+	cursor: pointer;
 }
 
 @media (min-width: 700px) {

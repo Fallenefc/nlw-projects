@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LoginPage from '../LoginPage';
 import Register from '../Register';
 import RegisterCompleted from '../RegisterCompleted';
+import ForgotPassword from '../ForgotPassword';
+import ResetPasswordPage from '../ResetPasswordPage';
 
 const LoggedRoutes: React.FC = () => {
 	return (
@@ -11,6 +13,12 @@ const LoggedRoutes: React.FC = () => {
 				<Route path='/' exact component={LoginPage} />
 				<Route path='/register' component={Register} />
 				<Route path='/registercompleted' component={RegisterCompleted} />
+				<Route path='/forgotpassword' component={ForgotPassword} />
+				/*{' '}
+				<Route
+					path='/resetpassword/:resetToken'
+					component={ResetPasswordPage}
+				/>
 			</Switch>
 		</BrowserRouter>
 	);
