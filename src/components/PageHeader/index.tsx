@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import backIcon from '../../assets/images/icons/back.svg';
-import logoImg from '../../assets/images/logo.svg';
 import './styles.css';
+import TopBarHeader from '../TopBarHeader';
 
 type Props = {
 	title: string;
@@ -18,14 +16,7 @@ const PageHeader: React.FC<Props> = ({
 }) => {
 	return (
 		<header className='page-header'>
-			<div className='top-bar-container'>
-				<Link to='/'>
-					<img src={backIcon} alt='Voltar' />
-				</Link>
-				<h4>{pageTitle}</h4>
-				<img src={logoImg} alt='Proffy' />
-			</div>
-
+			<TopBarHeader title={pageTitle} />
 			<div className='header-content'>
 				<strong>{title}</strong>
 				{description ? <p>{description}</p> : null}

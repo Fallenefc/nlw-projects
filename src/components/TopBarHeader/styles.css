@@ -1,0 +1,25 @@
+.top-bar-container {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--color-text-in-primary);
+	padding: 1.6rem 0;
+	background: var(--color-primary-darker);
+}
+
+.top-bar-container a {
+	height: 3.2rem;
+	transition: opacity 0.2;
+	margin-left: 2rem;
+}
+.top-bar-container a:hover {
+	height: 3.2rem;
+	transition: opacity 0.2;
+}
+
+.top-bar-container > img {
+	height: 1.6rem;
+	margin-right: 2rem;
+}
