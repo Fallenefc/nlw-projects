@@ -8,7 +8,8 @@ const LoginPage: React.FC = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [isChecked, setChecked] = useState(false);
-	const { signIn } = useAuth();
+
+	const { signIn, error } = useAuth();
 	const history = useHistory();
 
 	useEffect(() => {
@@ -29,7 +30,7 @@ const LoginPage: React.FC = () => {
 		}
 	}, []);
 
-	const handleSubmit = (event: FormEvent) => {
+	const handleSubmit = async (event: FormEvent) => {
 		event.preventDefault();
 		if (isChecked) {
 			console.log('entrei aqui');
@@ -71,6 +72,8 @@ const LoginPage: React.FC = () => {
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 						/>
+
+						{error ? <span>Senha ou email incorreto</span> : null}
 					</div>
 					<div className='input-checkbox'>
 						<label>Lembrar-senha</label>

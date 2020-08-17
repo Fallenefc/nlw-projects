@@ -10,6 +10,43 @@
 	background: var(--color-primary);
 }
 
+.user-header {
+	display: flex;
+	flex: 1;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	top: 0.5rem;
+	left: 0;
+	margin: 2rem;
+	width: 90%;
+}
+
+.user-name-avatar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 15rem;
+}
+.user-name-avatar img {
+	border-radius: 100%;
+	width: 30%;
+}
+
+.user-header button {
+	background: var(--color-primary-lighter);
+	color: var(--color-text-in-primary);
+	border: none;
+	width: 10rem;
+	height: 4rem;
+	border-radius: 0.4rem;
+	cursor: pointer;
+}
+
+.user-header button:hover {
+	background: var(--color-primary);
+}
+
 .logo-container img {
 	height: 10rem;
 }

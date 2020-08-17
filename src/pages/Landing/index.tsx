@@ -11,7 +11,7 @@ import { useAuth } from '../../context/AuthContext';
 
 const Landing: React.FC = () => {
 	const [totalConnections, setTotalConnections] = useState(0);
-	const { signOut } = useAuth();
+	const { signOut, user } = useAuth();
 
 	useEffect(() => {
 		api.get('/connections').then((response) => {
@@ -23,9 +23,18 @@ const Landing: React.FC = () => {
 
 	return (
 		<div id='page-landing'>
-			<button type='button' onClick={signOut}>
-				LogOut
-			</button>
+			<div className='user-header'>
+				<div className='user-name-avatar'>
+					<img src={user?.avatar} alt='avatar-img' />
+					<h3>
+						{user?.name} {user?.lastname}
+					</h3>
+				</div>
+
+				<button type='button' onClick={signOut}>
+					Logout
+				</button>
+			</div>
 			<div id='page-landing-content' className='container'>
 				<div className='logo-container'>
 					<img src={logoImg} alt='Proffy' />

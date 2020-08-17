@@ -2,20 +2,18 @@ import React, { useState, FormEvent } from 'react';
 import PageHeader from '../../components/PageHeader';
 import Input from '../../components/Input';
 import warningIcon from '../../assets/images/icons/warning.svg';
-import Textarea from '../../components/Textarea';
 import './styles.css';
 import Select from '../../components/Select';
 import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 const TeacherForm: React.FC = () => {
 	const history = useHistory();
-	const [name, setName] = useState('');
-	const [avatar, setAvatar] = useState('');
-	const [whatsapp, setWhatsApp] = useState('');
-	const [bio, setBio] = useState('');
+	const { user } = useAuth();
 	const [subject, setSubject] = useState('');
 	const [cost, setCost] = useState('');
+	console.log(user?.name);
 
 	const [scheudleItems, setScheudleItems] = useState([
 		{ week_day: 0, from: '', to: '' },
@@ -46,10 +44,6 @@ const TeacherForm: React.FC = () => {
 
 		api
 			.post('/classes', {
-				name,
-				avatar,
-				whatsapp,
-				bio,
 				subject,
 				cost: Number(cost),
 				scheudle: scheudleItems,
@@ -61,45 +55,19 @@ const TeacherForm: React.FC = () => {
 			.catch(() => {
 				alert('Erro no cadastro');
 			});
-		console.log({ name, avatar, bio, cost, subject, whatsapp, scheudleItems });
 	};
 
 	return (
 		<div id='page-teacher-form' className='container'>
 			<PageHeader
+				pageTitle='Dar aulas'
 				title='Que ínicrivel que você quer dar aulas'
 				description='O primeiro passo é preencher esse formulário de inscrição'
 			/>
+			<h3>{user?.name}</h3>
+			<h3>{user?.lastname}</h3>
 			<main>
 				<form onSubmit={handleCreateClass}>
-					<fieldset>
-						<legend>Seus Dados</legend>
-						<Input
-							label='Nome Completo'
-							name='name'
-							value={name}
-							onChange={(e) => setName(e.target.value)}
-						/>
-						<Input
-							label='Avatar'
-							name='avatar'
-							value={avatar}
-							onChange={(e) => setAvatar(e.target.value)}
-						/>
-						<Input
-							label='WhatsApp'
-							name='whatsapp'
-							value={whatsapp}
-							onChange={(e) => setWhatsApp(e.target.value)}
-						/>
-						<Textarea
-							name='bio'
-							label='biografia'
-							value={bio}
-							onChange={(e) => setBio(e.target.value)}
-						/>
-					</fieldset>
-
 					<fieldset>
 						<legend>Sobre a aula</legend>
 						<Select

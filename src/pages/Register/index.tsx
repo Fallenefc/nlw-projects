@@ -3,18 +3,30 @@ import './styles.css';
 import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
 import PageWithBackgroundImg from '../../components/PageWithBackgroundImg';
+import Textarea from '../../components/Textarea';
 
 const Register: React.FC = () => {
 	const [name, setName] = useState('');
 	const [lastname, setLastName] = useState('');
 	const [email, setEmail] = useState('');
+	const [whatsapp, setWhatsapp] = useState('');
+	const [bio, setBio] = useState('');
+	const [avatar, setAvatar] = useState('');
 	const [password, setPassword] = useState('');
 	const history = useHistory();
 
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
 		console.log({ name, lastname, email, password });
-		api.post('/register', { name, lastname, email, password });
+		api.post('/register', {
+			name,
+			lastname,
+			email,
+			password,
+			avatar,
+			whatsapp,
+			bio,
+		});
 
 		history.push('/registercompleted');
 	};
@@ -42,6 +54,24 @@ const Register: React.FC = () => {
 							placeholder='Sobrenome'
 							value={lastname}
 							onChange={(e) => setLastName(e.target.value)}
+						/>
+						<input
+							type='text'
+							placeholder='Avatar'
+							value={avatar}
+							onChange={(e) => setAvatar(e.target.value)}
+						/>
+						<input
+							type='text'
+							placeholder='Whatsapp'
+							value={whatsapp}
+							onChange={(e) => setWhatsapp(e.target.value)}
+						/>
+						<Textarea
+							name='bio'
+							label='biografia'
+							value={bio}
+							onChange={(e) => setBio(e.target.value)}
 						/>
 						<input
 							type='text'

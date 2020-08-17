@@ -7,15 +7,22 @@ import './styles.css';
 type Props = {
 	title: string;
 	description?: string;
+	pageTitle?: string;
 };
 
-const PageHeader: React.FC<Props> = ({ title, children, description }) => {
+const PageHeader: React.FC<Props> = ({
+	title,
+	children,
+	description,
+	pageTitle,
+}) => {
 	return (
 		<header className='page-header'>
 			<div className='top-bar-container'>
 				<Link to='/'>
 					<img src={backIcon} alt='Voltar' />
 				</Link>
+				<h4>{pageTitle}</h4>
 				<img src={logoImg} alt='Proffy' />
 			</div>
 

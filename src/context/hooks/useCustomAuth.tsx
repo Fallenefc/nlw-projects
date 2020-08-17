@@ -11,12 +11,16 @@ interface User {
 	id: number;
 	name: string;
 	lastname: string;
+	whatsapp: string;
+	bio: string;
+	avatar: string;
 	email: string;
 }
 
 const useCustomAuth = () => {
 	const [user, setUser] = useState<User | null>(null);
 	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(false);
 	const history = useHistory();
 
 	useEffect(() => {
@@ -31,16 +35,32 @@ const useCustomAuth = () => {
 	}, []);
 
 	const signIn = async (email: string, password: string) => {
-		const response: AxiosResponse<authResponse> = await api.post('/login', {
-			email,
-			password,
-		});
+		try {
+			const response: AxiosResponse<authResponse> = await api.post('/login', {
+				email,
+				password,
+			});
 
-		api.defaults.headers['Authorization'] = `Bearer ${response.data.token}`;
+			/*api.interceptors.request.use(
+				(config) => {
+					config.headers.authorization = `Bearer ${response.data.token}`;
+					console.log(config.headers.authorization);
+					return config;
+				},
+				(error) => {
+					return Promise.reject(error);
+				}
+			);*/
 
-		setUser(response.data.user);
-		localStorage.setItem('user', JSON.stringify(response.data.user));
-		localStorage.setItem('token', response.data.token);
+			//console.log(api.defaults.headers.authorization);
+			setUser(response.data.user);
+			localStorage.setItem('user', JSON.stringify(response.data.user));
+			localStorage.setItem('token', response.data.token);
+			const me = await api.get('/me');
+			console.log(me.data);
+		} catch (e) {
+			setError(!error);
+		}
 	};
 	const signOut = () => {
 		localStorage.removeItem('user');
@@ -49,7 +69,7 @@ const useCustomAuth = () => {
 		history?.push('/');
 	};
 
-	return { user, loading, signIn, signOut };
+	return { user, loading, signIn, signOut, error };
 };
 
 export default useCustomAuth;

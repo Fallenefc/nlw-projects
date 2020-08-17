@@ -26,6 +26,7 @@ const ForgotPassword: React.FC = () => {
 							name='Email'
 							type='text'
 							placeholder='Email'
+							className='form-input'
 						/>
 						<button type='submit'>Enviar</button>
 					</form>
