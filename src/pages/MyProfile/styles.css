@@ -5,6 +5,7 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	overflow-y: auto;
 }
 
 .profile-header {
@@ -17,6 +18,73 @@
 	height: 30rem;
 	width: 100%;
 }
+.profile-container form {
+	width: 100rem;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	padding: 3rem;
+	border-radius: 0.8rem;
+	background: var(--color-box-base);
+}
+
+.input-form-block {
+	padding-top: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.input-form-block input {
+	width: 80rem;
+}
+
+.textarea-block {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.textarea-block label {
+	padding-top: 2rem;
+}
+
+.input-form-block textarea {
+	width: 40rem;
+}
+
+.input-block {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 40rem;
+}
+.input-block + .input-block {
+	margin-top: 0;
+}
+
+.name-inputs {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 1rem;
+}
+
+.name-inputs input {
+	width: 40rem;
+}
+
+.email-whatsapp-inputs {
+	padding-top: 2rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 1rem;
+}
+
+.email-whatsapp-inputs input {
+	width: 40rem;
+}
 
 .profile-header img {
 	border-radius: 100%;
@@ -25,4 +93,7 @@
 
 .profile-header h2 {
 	color: var(--color-title-in-primary);
+}
+
+@media (min-width: 700px) {
 }

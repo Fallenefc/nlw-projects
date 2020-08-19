@@ -25,7 +25,9 @@ const Landing: React.FC = () => {
 		<div id='page-landing'>
 			<div className='user-header'>
 				<div className='user-name-avatar'>
-					<img src={user?.avatar} alt='avatar-img' />
+					<Link to='/myprofile'>
+						<img src={user?.avatar} alt='avatar-img' />
+					</Link>
 					<h3>
 						{user?.name} {user?.lastname}
 					</h3>
